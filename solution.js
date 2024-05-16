@@ -3,13 +3,13 @@ class Pokemon {
         this.name = name;
         this.health = health;
         this.magic = magic;
-        this.skills = skills;
+        this.skills = skills || [];
         this.counter = counter;
     };
 
 
     learnAttackSkill(newSkill){
-        if (this.skills.includes(newSkill)){
+        if (!this.skills.includes(newSkill)){
             this.skills.push(newSkill);
             return `${this.name} has learned learned ${newSkill.attack} as a new skill`
         }
@@ -54,16 +54,57 @@ class Pokemon {
 
 
     attack(skillName, opponent){
-        if (this.health > 0 && opponent.health > 0 && this.magic >= skill.magic) {
-            return 
+        if (this.health > 0 && opponent.health > 0 && this.hasEnoughMagic(skillName)) {
+            const skill = this.skills.find(skill => skill.attack === skillName);
+
+            if (skill) {
+
+            this.magic -= skill.magic;
+            opponent.receiveDamage(skill.damage);
+            this.counter++;
+            this.showStatus();
+            opponent.showStatus();
+
         } 
+    } else {
+        return `${this.name} has no ${skillName} to attack!`
+    }
     };
+
+    receiveDamage(damage) {
+        this.health -= damage;
+        return `${this.name} received ${damage} damage!!!`
+    }
 }
 
 class AttackSkill {
     constructor (attack, damage, magic) {
-        this.attack = attack,
-        this.damage = damage,
-        this.magic = magic,
+        this.attack = attack;
+        this.damage = damage;
+        this.magic = magic;
     };
 }
+
+let pikachu = new Pokemon("pikachu", 120, 80);
+let bulbasaur = new Pokemon("bulbasaur", 95, 105);
+
+// create new skills that Pokemons can learn
+let lightning = new AttackSkill("lightning", 40, 30);
+let bombing = new AttackSkill("poisonSeed", 20, 20);
+
+// pikachu learning skills
+pikachu.learnAttackSkill(lightning);
+pikachu.learnAttackSkill(bombing);
+
+// bulbasaur learning skills
+bulbasaur.learnAttackSkill(lightning);
+bulbasaur.learnAttackSkill(bombing);
+
+
+// Pokemons starts attacking each other
+pikachu.attack("lightning", bulbasaur);
+bulbasaur.attack("poisonSeed", pikachu);
+pikachu.attack("poisonSeed", bulbasaur);
+bulbasaur.attack("lightning", pikachu);
+pikachu.attack("lightning", bulbasaur);
+pikachu.attack("poisonSeed", bulbasaur);
