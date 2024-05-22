@@ -1,3 +1,24 @@
+const readline = require('readline-sync');
+
+const name = readline.question(`Hello and welcome to the Pokémon Match Simulator.\nWhat is your name?\n `);
+console.log(`Hello, ${name}!`);
+
+const select = readline.question(`You have to choose your Pokémon. Do you want to proceed?\n `);
+
+let input = null;
+const options = [`yes`, `no`];
+
+
+if (options.includes(select)) {
+    if (select === 'yes') {
+      console.log('Great! Let\'s choose your Pokémon!');
+    } else  {
+      console.log('Okay, maybe next time!');
+    }
+};
+
+
+
 class Pokemon {
     constructor (name, health, magic, skills, counter) {
         this.name = name;
@@ -242,3 +263,4 @@ pikachu.attack("lightning", bulbasaur);
 bulbasaur.attack("poisonSeed", pikachu);
 pikachu.attack("lightning", bulbasaur);
 bulbasaur.attack("poisonSeed", pikachu);
+
