@@ -22,3 +22,10 @@
 ***Progress***
 
 – coding went rather smoothly but terminal always threw an error when I tried to push updates
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+***DAY 3***
+
+– new Pokemon class added
+– skills cleaned up, each character now has specific skills and attacks (classes intertwine)
