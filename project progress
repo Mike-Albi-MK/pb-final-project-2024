@@ -29,3 +29,5 @@
 
 – new Pokemon class added
 – skills cleaned up, each character now has specific skills and attacks (classes intertwine)
+– readline-sync installed and imported to solution.js, commands added to code for playability on terminal and
+more engaging player experience
