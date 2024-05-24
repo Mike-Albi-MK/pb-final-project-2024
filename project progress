@@ -31,3 +31,20 @@
 – skills cleaned up, each character now has specific skills and attacks (classes intertwine)
 – readline-sync installed and imported to solution.js, commands added to code for playability on terminal and
 more engaging player experience
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+***DAY 4***
+
+– code problems: inner logic of battle was a lot to tackle, defined number of rounds didn't run as supposed to,
+only one blow could be dealt, matches ended prematurely
+– stats didn't not print on terminal during matches, inner logic of loops needed to be fixed
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+***DAY 5***
+
+– pickung up where I left the progress on day 4, two new js-files where created to seperate code trials from main branch of
+work
+– finally the code/terminal acted accordingly to my requests
+– now all implementations should be mirrored when typing orders
